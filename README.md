@@ -1,4 +1,4 @@
-# Phaser 3 Webpack Road Rush game
+# Phaser 3 Webpack Starter
 
 ## Installation  
 `npm install`  
