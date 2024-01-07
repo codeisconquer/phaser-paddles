@@ -9,7 +9,7 @@ export default class ScoreBox extends Phaser.GameObjects.Container {
         this.model = config.model;
         this.scene = config.scene;
 
-        this.text1 = this.scene.add.text(0, 0, "SCORE:0");
+        this.text1 = this.scene.add.text(0, 0, "SCORE:0", {fontSize: config.scene.game.config.width/20});
         this.text1.setOrigin(0.5, 0.5);
         this.text1.setBackgroundColor("#000000");
         this.add(this.text1);

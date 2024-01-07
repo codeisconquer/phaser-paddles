@@ -12,7 +12,7 @@ export default class SceneLoad extends Phaser.Scene {
     preload() {
 
         const emitter = new Phaser.Events.EventEmitter();
-        const model = new Model(emitter);
+        const model = new Model({emitter: emitter});
         const controller = new Controller({ emitter: emitter, model: model });
         const mediaManager = new MediaManager({ scene: this, emitter: emitter, model: model });
         const s = new Singleton({
@@ -28,22 +28,25 @@ export default class SceneLoad extends Phaser.Scene {
         this.load.on("progress", this.onProgress, this);
 
 
-        this.load.image("toggleBack", "images/ui/toggles/1.png");
+        this.load.image("toggleBack", "images/ui/toggles/3.png");
         this.load.image("sfxOff", "images/ui/icons/sfx_off.png");
         this.load.image("sfxOn", "images/ui/icons/sfx_on.png");
         this.load.image("musicOff", "images/ui/icons/music_off.png");
         this.load.image("musicOn", "images/ui/icons/music_on.png");
 
-        this.load.audio("alarm", ["audio/alarm-loop-sound-effect-94369.mpr", "audio/alarm-loop-sound-effect-94369.ogg"]);
+        // this.load.audio("alarm", ["audio/alarm-loop-sound-effect-94369.mpr", "audio/alarm-loop-sound-effect-94369.ogg"]);
 
         this.load.image("button1", "images/ui/buttons/2/1.png");
         this.load.image("title", "images/title.png");
         this.load.image("titleBack", "images/titleBack.jpg");
 
+        this.load.spritesheet("balls", "images/balls.png", {frameWidth: 100, frameHeight: 100});
+        this.load.spritesheet("paddles", "images/paddles.png", {frameWidth: 400, frameHeight: 50});
+        this.load.image("bar", "images/bar.jpg");
+
     }
     create() {
-        console.log('SceneLoad create method called', this.game);
-        this.scene.start("SceneTitle");
+        this.scene.start("SceneMain"); //SceneTitle
     }
 
     onProgress(value) {

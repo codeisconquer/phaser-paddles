@@ -1,14 +1,15 @@
 import { emitter, G } from "../../index";
+import Singleton from "./Singleton";
 
 export default class Model {
-    constructor(e) {
+    constructor(config) {
 
         this._gameOver = false;
         this.score = 0;
         this._soundOn = true;
         this._musicOn = true;
 
-        this.emitter = e;
+        this.emitter = config.emitter;
         this.isMobile = navigator.userAgent.indexOf("Mobile");
         if (this.isMobile == -1) {
             this.isMobile = navigator.userAgent.indexOf("Tablet");
@@ -27,7 +28,8 @@ export default class Model {
         this.score = val;
         console.log('Score updated', this._score);
         if (this._gameOver == true) return;
-        this.emitter.emit(G.SCORE_UPDATED);
+        const s = new Singleton();
+        s.emitter.emit(G.SCORE_UPDATED);
     }
 
     getScore() {
@@ -56,7 +58,8 @@ export default class Model {
 
     set musicOn(val) {
         this._musicOn = val;
-        this.emitter.emit(G.MUSIC_CHANGED);
-        mediaManager.musicChanged();
+        const s = new Singleton();
+        s.emitter.emit(G.MUSIC_CHANGED);
+        s.mediaManager.musicChanged();
     }
 }
