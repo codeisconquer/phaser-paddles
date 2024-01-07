@@ -2,20 +2,11 @@
   "name": "phaser-webpack",
   "version": "4.0.0",
   "description": "Phaser Webpack",
-  "main": "src/js/index.ts",
+  "main": "src/js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sebsowter/phaser-webpack.git"
-  },
-  "author": "Seb Sowter",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sebsowter/phaser-webpack/issues"
   },
   "babel": {
     "presets": [
