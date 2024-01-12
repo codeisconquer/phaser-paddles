@@ -16,9 +16,9 @@ export default class SceneOver extends Phaser.Scene {
         const model = s.model;  
         this.alignGrid = new AlignGrid({ rows: 11, cols: 11, scene: this });
 
-        // this.backImage = this.add.image(this.game.config.width/2, this.game.config.height/2, "titleBack");
+        this.backImage = this.add.image(this.game.config.width/2, this.game.config.height/2, "titleBack");
 
-        var title = this.add.image(0, 0, 'title');
+        var title = this.add.image(0, 0, 'titleOver');
         Align.scaleToGameWidth(title, .8)
         this.alignGrid.placeAtIndex(38, title);
 

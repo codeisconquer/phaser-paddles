@@ -128,13 +128,16 @@ export default class SceneMain extends Phaser.Scene {
         this.setBallColor();
 
         var targetY = 0;
-        if (paddle.y > this.centerY) {
-            targetY = paddle.y - this.pMove;
-        } else {
-            targetY = paddle.y + this.pMove
+        if (distY > this.game.config.height / 5) {
+            if (paddle.y > this.centerY) {
+                targetY = paddle.y - this.pMove;
+            } else {
+                targetY = paddle.y + this.pMove
+            }
+    
+            this.tweens.add({ targets: paddle, duration: 1000, y: targetY });
         }
-
-        this.tweens.add({ targets: paddle, duration: 1000, y: targetY });
+        
     }
 
     doOver() {

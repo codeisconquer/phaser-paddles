@@ -39,6 +39,7 @@ export default class SceneLoad extends Phaser.Scene {
         this.load.image("button1", "images/ui/buttons/2/1.png");
         this.load.image("title", "images/title.png");
         this.load.image("titleBack", "images/titleBack.jpg");
+        this.load.image("titleOver", "images/titleOver.png");
 
         this.load.spritesheet("balls", "images/balls.png", {frameWidth: 100, frameHeight: 100});
         this.load.spritesheet("paddles", "images/paddles.png", {frameWidth: 400, frameHeight: 50});
