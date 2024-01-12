@@ -18,7 +18,7 @@ export default class SceneMain extends Phaser.Scene {
         const emitter = s.emitter;
         this.emitter = emitter;
         const model = s.model;
-        const mediaManager = s.mediaManager;
+        this.mediaManager = s.mediaManager;
 
 
         this.alignGrid = new AlignGrid({
@@ -88,7 +88,7 @@ export default class SceneMain extends Phaser.Scene {
 
         this.downY = pointer.y
 
-
+        this.mediaManager.playSound("flip");
     }
     onCompleteHandler(tween, targets, custom) {
 
@@ -109,10 +109,13 @@ export default class SceneMain extends Phaser.Scene {
 
     ballHit(ball, paddle) {
         this.velocity = -this.velocity;
+        this.velocity *= 1.01;
+        this.mediaManager.playSound("hit");
+        var distY = Math.abs(this.paddle1.y - this.paddle2.y);
         if (ball.frame.name == paddle.frame.name) {
 
             var points = 1;
-            var distY = Math.abs(this.paddle1.y - this.paddle2.y);
+            
             if (distY < this.game.config.height / 3) {
                 points = 2;
             } else if (distY < this.game.config.height / 4) {

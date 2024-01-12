@@ -34,7 +34,9 @@ export default class SceneLoad extends Phaser.Scene {
         this.load.image("musicOff", "images/ui/icons/music_off.png");
         this.load.image("musicOn", "images/ui/icons/music_on.png");
 
-        // this.load.audio("alarm", ["audio/alarm-loop-sound-effect-94369.mpr", "audio/alarm-loop-sound-effect-94369.ogg"]);
+        this.load.audio("flip", ["audio/flip.wav", "audio/flip.ogg"]);
+        this.load.audio("hit", ["audio/hit.wav", "audio/hit.ogg"]);
+        this.load.audio("lose", ["audio/lose.wav", "audio/lose.ogg"]);
 
         this.load.image("button1", "images/ui/buttons/2/1.png");
         this.load.image("title", "images/title.png");

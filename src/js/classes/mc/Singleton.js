@@ -18,6 +18,12 @@ class Singleton {
       this.score += 1;
       console.log('Score erhöht:', this.score);
     }
+
+    destroy() {
+      if (Singleton.instance) {
+        Singleton.instance = null;
+      }
+    }
   }
   
   export default Singleton;

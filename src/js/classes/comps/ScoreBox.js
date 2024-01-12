@@ -22,6 +22,9 @@ export default class ScoreBox extends Phaser.GameObjects.Container {
     scoreUpdated() {
         const s = new Singleton();
         const model = s.model;
-        this.text1.setText("SCORE:" + model.getScore());
+        console.log('model', model);
+        if(this.text1) {
+            this.text1.setText("SCORE:" + model.score);
+        }
     }
 }
