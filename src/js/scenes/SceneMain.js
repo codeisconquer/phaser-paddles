@@ -123,6 +123,7 @@ export default class SceneMain extends Phaser.Scene {
             }
             this.emitter.emit(G.UP_POINTS, points);
         } else {
+            this.mediaManager.playSound("lose");
             this.time.addEvent({ delay: 2000, callback: this.doOver, callbackScope: this, loop: false });
 
         }

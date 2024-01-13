@@ -28,7 +28,15 @@ export default class SceneTitle extends Phaser.Scene {
         this.alignGrid.placeAtIndex(93, btnStart);
 
         emitter.on("start_game", this.startGame, this);
-        // mediaManager.setBackgroundMusic("backgroundMusic");
+        
+
+        this.centerX = this.game.config.width / 2;
+        this.centerY = this.game.config.height / 2;
+        this.ball = this.physics.add.sprite(this.centerX, this.centerY, 'balls');
+        this.ball.body.setBounce(0, 1);
+        this.ball.body.setVelocity(0, 100);
+        this.ball.body.collideWorldBounds = true;
+        Align.scaleToGameWidth(this.ball, 0.05);
     }
 
     startGame() {

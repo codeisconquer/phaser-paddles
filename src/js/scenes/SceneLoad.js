@@ -49,7 +49,7 @@ export default class SceneLoad extends Phaser.Scene {
 
     }
     create() {
-        this.scene.start("SceneMain"); //SceneTitle
+        this.scene.start("SceneTitle"); //
     }
 
     onProgress(value) {
